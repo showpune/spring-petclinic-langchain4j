@@ -1,6 +1,5 @@
 package org.springframework.samples.petclinic.chat;
 
-import com.azure.core.http.ProxyOptions;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.model.azure.AzureOpenAiChatModel;
 import dev.langchain4j.model.chat.ChatLanguageModel;

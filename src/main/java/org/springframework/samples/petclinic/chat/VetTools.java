@@ -24,10 +24,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 
 /**
- * @author Juergen Hoeller
- * @author Mark Fisher
- * @author Ken Krebs
- * @author Arjen Poutsma
+ * @author Zhiyong Li
  */
 @Component
 public class VetTools {
@@ -40,9 +37,6 @@ public class VetTools {
 
 	@Tool(value = { "return list of Vets, include their specialist" })
 	public Collection<Vet> getVetList() {
-		// Here we are returning an object of type 'Vets' rather than a collection of Vet
-		// objects so it is simpler for Object-Xml mapping
-		Vets vets = new Vets();
 		return vetRepository.findAll();
 	}
 
