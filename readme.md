@@ -43,6 +43,30 @@ Go to the owner page, you can see you are registered as an owner with the help o
 ### Prompt
 The prompt is defined in [agent](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/java/org/springframework/samples/petclinic/chat/Agent.java)
 
+### Memory
+Memory Store: The demo still use the local memory defined in [memory store](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/LocalConfig.java#L39), it means it can not share memory between instances, you can enhance it use memory on Redis
+
+Memory ID: It use the username as memory id [Memory ID](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/Agent.java#L13)
+
+### Interact with natives functions
+The Demo provided two local tools to interactive with native functions
+1) [Vets and their specialist](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/VetTools.java#L41): The agent will know the system can return list of Vets, include their specialist, it can be used to recommend a vet
+2) [Owner and Pets](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/java/org/springframework/samples/petclinic/chat/OwnerTools.java): he agent will know the system register new owner and their pets
+
+### Content Retriever
+It still use the local file as [content retriever](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/LocalConfig.java#L51), it provided the guideline how the agent should work, which is in [Term of Use](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/resources/petclinic-terms-of-use.txt)
+
+### Talk with Other language
+You can also talk with the agent with your own language, like Chinese
+![image](https://github.com/showpune/spring-petclinic-langchain4j/assets/1787505/cd2a7a8c-dac5-440f-b7a9-f03239b8735a)
+
+The problem is that your [Term of Use](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/resources/petclinic-terms-of-use.txt) is in English, the traditional way is that provide a localized term of use for each language, but you can use openAI to make it easier
+
+We can define a [Retrieval Augmentor](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/AgentConfig.java#L47C21-L47C39), and translate your ask into English before you retrieve the content
+
+
+
+
 ## License
 
 The Spring PetClinic sample application is released under version 2.0 of
