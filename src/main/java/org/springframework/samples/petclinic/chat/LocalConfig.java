@@ -26,8 +26,8 @@ import org.springframework.core.io.ResourceLoader;
 
 import java.io.IOException;
 
-import static dev.langchain4j.data.document.loader.FileSystemDocumentLoader.loadDocument;
-import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_3_5_TURBO;
+import static dev.langchain4j.data.document.loader.UrlDocumentLoader.load;
+import static dev.langchain4j.model.azure.AzureOpenAiModelName.GPT_3_5_TURBO;
 import static org.springframework.samples.petclinic.chat.LocalProperties.PREFIX;
 
 @Configuration
@@ -79,7 +79,7 @@ public class LocalConfig {
 		EmbeddingStore<TextSegment> embeddingStore = new InMemoryEmbeddingStore<>();
 
 		Resource resource = resourceLoader.getResource(contentRetrieverProperties.getContentPath());
-		Document document = loadDocument(resource.getFile().toPath(), new TextDocumentParser());
+		Document document = load(resource.getURL(), new TextDocumentParser());
 
 		DocumentSplitter documentSplitter = DocumentSplitters.recursive(100, 0, new OpenAiTokenizer(GPT_3_5_TURBO));
 		EmbeddingStoreIngestor ingestor = EmbeddingStoreIngestor.builder()
