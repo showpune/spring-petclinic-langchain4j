@@ -27,7 +27,7 @@
         <webjars-bootstrap.version>5.3.3</webjars-bootstrap.version>
         <webjars-font-awesome.version>4.7.0</webjars-font-awesome.version>
 
-        <checkstyle.version>10.12.5</checkstyle.version>
+        <checkstyle.version>10.16.0</checkstyle.version>
         <jacoco.version>0.8.11</jacoco.version>
         <libsass.version>0.3.1</libsass.version>
         <lifecycle-mapping>1.0.0</lifecycle-mapping>
