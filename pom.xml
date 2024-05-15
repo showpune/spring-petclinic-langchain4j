@@ -173,6 +173,12 @@
             <version>${langchain4j.version}</version>
         </dependency>
 
+        <dependency>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>spring-cloud-azure-starter-keyvault</artifactId>
+          <version>5.11.0</version>
+        </dependency>
+
     </dependencies>
     <repositories>
         <repository>
