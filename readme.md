@@ -43,8 +43,14 @@ You can talk with the agent, it can help to recommend the vet according to the s
 Go to the owner page, you can see you are registered as an owner with the help of the agent
 ![image](https://github.com/showpune/spring-petclinic-langchain4j/assets/1787505/e7da4ede-5405-437d-a35f-fcd60af45ba7)
 
+## LLM Progamming
+Normally a LLM application contains 5 parts: Prompt, Model, Memory, Native Functions( tools ）and RAG (content retriever)
+
 ### Prompt
 The prompt is defined in [agent](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/java/org/springframework/samples/petclinic/chat/Agent.java)
+
+### Model
+The model is is defined in [model](https://github.com/showpune/spring-petclinic-langchain4j/blob/3d2dcc1c303a7352f681892bb0871dbea1daaebd/src/main/java/org/springframework/samples/petclinic/chat/AgentConfig.java#L36), the model can be used for [chat](https://github.com/showpune/spring-petclinic-langchain4j/blob/3d2dcc1c303a7352f681892bb0871dbea1daaebd/src/main/java/org/springframework/samples/petclinic/chat/AgentConfig.java#L26), or can be used for [content augmentor](https://github.com/showpune/spring-petclinic-langchain4j/blob/3d2dcc1c303a7352f681892bb0871dbea1daaebd/src/main/java/org/springframework/samples/petclinic/chat/AgentConfig.java#L50)
 
 ### Memory
 Memory Store: The demo still use the local memory defined in [memory store](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/LocalConfig.java#L39), it means it can not share memory between instances, you can enhance it use memory on Redis
