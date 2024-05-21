@@ -63,7 +63,7 @@ The Demo provided two local tools to interactive with native functions
 2) [Owner and Pets](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/java/org/springframework/samples/petclinic/chat/OwnerTools.java): he agent will know the system register new owner and their pets
 
 ### Content Retriever
-It still use the local file as [content retriever](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/LocalConfig.java#L51), it provided the guideline how the agent should work, which is in [Term of Use](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/resources/petclinic-terms-of-use.txt)
+It still use the local file as [content retriever](https://github.com/showpune/spring-petclinic-langchain4j/blob/c95a598f4fdaf68a3f331b32ca42ef5ef95e5c17/src/main/java/org/springframework/samples/petclinic/chat/LocalConfig.java#L51), it provided the guideline how the agent should work, which is in [Term of Use](https://github.com/showpune/spring-petclinic-langchain4j/blob/master/src/main/resources/petclinic-terms-of-use.txt), the content is ingest when the store in initialized [here](https://github.com/showpune/spring-petclinic-langchain4j/blob/d95e8c0bd9b5eb42da38b991ac50b854a61ad42e/src/main/java/org/springframework/samples/petclinic/chat/LocalConfig.java#L78). If you have lots of content, tried to use the [AI Search](https://github.com/langchain4j/langchain4j-spring/tree/main/langchain4j-azure-ai-search-spring-boot-starter) to create the RAG
 
 ### Talk with Other language
 You can also talk with the agent with your own language, like Chinese
