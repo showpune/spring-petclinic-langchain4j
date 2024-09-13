@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.model;
 
+import lombok.Data;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,19 +32,12 @@ import java.io.Serializable;
  * @author Juergen Hoeller
  */
 @MappedSuperclass
+@Data
 public class BaseEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public boolean isNew() {
 		return this.id == null;

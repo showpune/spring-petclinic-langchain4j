@@ -27,7 +27,9 @@ class ChatModelProperties {
 
 	String endpoint;
 
-	String apiKey;
+	//String apiKey;
+
+	String clientId;
 
 	String organizationId;
 

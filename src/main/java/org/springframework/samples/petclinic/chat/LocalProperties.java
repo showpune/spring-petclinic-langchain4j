@@ -23,9 +23,7 @@ public class LocalProperties {
 	public static class ContentRetrieverProperties {
 
 		String maxResults;
-
 		String minScore;
-
 		String contentPath;
 
 	}
@@ -35,7 +33,6 @@ public class LocalProperties {
 	public static class LocalMemoryProperties {
 
 		boolean useLocal;
-
 		int memorySize;
 
 	}

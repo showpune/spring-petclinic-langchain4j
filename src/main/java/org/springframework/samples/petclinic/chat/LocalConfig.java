@@ -34,6 +34,9 @@ import static org.springframework.samples.petclinic.chat.LocalProperties.PREFIX;
 @EnableConfigurationProperties(LocalProperties.class)
 public class LocalConfig {
 
+	/**
+	 * Configure a bean of type ChatMemoryProvider that manage chat history in memory.
+	 */
 	@Bean
 	@ConditionalOnProperty(name = PREFIX + ".memory.use-local", havingValue = "true")
 	ChatMemoryProvider chatMemoryProvider(LocalProperties properties) {
@@ -46,6 +49,11 @@ public class LocalConfig {
 			.build();
 	}
 
+	/**
+	 * Configure a bean of type ContentRetriever
+	 * @param embeddingStore: stores embeddings (vector representations) of text segments.
+	 * @param embeddingModel: used to generate embeddings for text.
+	 */
 	@Bean
 	@ConditionalOnProperty(name = PREFIX + ".content-retriever.use-local", havingValue = "true")
 	ContentRetriever contentRetriever(EmbeddingStore<TextSegment> embeddingStore, EmbeddingModel embeddingModel,
@@ -65,12 +73,20 @@ public class LocalConfig {
 			.build();
 	}
 
+	/**
+	 * Configure a bean of type EmbeddingModel
+	 */
 	@Bean
 	@ConditionalOnProperty(name = PREFIX + ".content-retriever.use-local", havingValue = "true")
 	EmbeddingModel embeddingModel() {
 		return new AllMiniLmL6V2EmbeddingModel();
 	}
 
+	/**
+	 * Configure a bean of type EmbeddingStore
+	 * @param embeddingModel: used to create embeddings.
+	 * @param resourceLoader:  loads resources like text files used for embedding creation.
+	 */
 	@Bean
 	@ConditionalOnProperty(name = PREFIX + ".content-retriever.use-local", havingValue = "true")
 	EmbeddingStore<TextSegment> embeddingStore(EmbeddingModel embeddingModel, ResourceLoader resourceLoader,
